@@ -1,0 +1,23 @@
+{
+  "name": "proto-utils",
+  "version": "1.0.0",
+  "description": "This package provides utilities for prototypes",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duetds/proto-utils.git"
+  },
+  "author": "LocalTapiola Services Ltd <duetdesignsystem@lahitapiola.fi>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/duetds/proto-utils/issues"
+  },
+  "homepage": "https://github.com/duetds/proto-utils#readme",
+  "dependencies": {
+    "finnish-ssn": "^2.1.2",
+    "typescript": "^5.8.3"
+  }
+}

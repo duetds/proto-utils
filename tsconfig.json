@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "lib": ["es2023", "DOM"],
+    "module": "esnext",
+    "target": "es2023",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "outDir": "lib"
+  },
+  "include": ["src/**/*"]
+}
