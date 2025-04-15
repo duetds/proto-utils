@@ -4,7 +4,7 @@ This repository contains various utilities for prototypes.
 
 ## Install
 
-`$ npm install https://github.com/duetds/proto-utils#semver:1.0.0`
+`$ npm install https://github.com/duetds/proto-utils#semver:v1.0.1`
 
 ## Utils
 
@@ -52,3 +52,7 @@ This repository contains various utilities for prototypes.
   - `isValidFinnishSSN`
   - `isValidBusinessId`
   - `isValidDate`
+
+## Development
+
+When making changes update the version in package.json, this README in Install section, and make a new release tag in GitHub.
