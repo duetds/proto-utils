@@ -82,7 +82,7 @@ declare const ProtoUtils: {
     validator: {
         isValidEmail(email: string): boolean;
         isValidPhoneNumber(phone: string): boolean;
-        isValidFinnishSSN(ssn: string): boolean;
+        isValidFinnishSSN(ssn: string, strict?: boolean): boolean;
         isValidBusinessId(businessId: string): boolean;
         isValidDate(dateStr: string): boolean;
     };

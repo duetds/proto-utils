@@ -7,16 +7,21 @@ import * as finnishSSNModule from "finnish-ssn"
 const validator = {
   /**
    * Basic email validation
-   * Checks for single @ and .
+   *
+   * @param email - The email to validate
+   * @returns True if the email is valid, false otherwise
    */
   isValidEmail(email: string): boolean {
     if (!email) return false
-    return (email.match(/@/g) || []).length === 1 && email.includes(".")
+    return /^[a-zA-Z0-9\._\-]+@[a-zA-Z0-9\._\-]+\.[a-zA-Z]{2,6}$/.test(email)
   },
 
   /**
    * Basic phone validation
    * Checks it starts with + and has some numbers
+   *
+   * @param phone - The phone number to validate
+   * @returns True if the phone number is valid, false otherwise
    */
   isValidPhoneNumber(phone: string): boolean {
     if (!phone) return false
@@ -25,15 +30,22 @@ const validator = {
 
   /**
    * Finnish SSN validation using 3rd party library
+   *
+   * @param ssn - The SSN to validate
+   * @param strict - Whether to use the strict validation
+   * @returns True if the SSN is valid, false otherwise
    */
-  isValidFinnishSSN(ssn: string): boolean {
+  isValidFinnishSSN(ssn: string, strict: boolean = false): boolean {
     if (!ssn) return false
-    return finnishSSNModule.FinnishSSN.validate(ssn)
+    return strict ? finnishSSNModule.FinnishSSN.validate(ssn) : /^\d{6}[\+\-aA]\d{3}[\da-zA-Z]$/.test(ssn)
   },
 
   /**
    * Basic business ID validation
    * Checks the format XXXXXXX-X
+   *
+   * @param businessId - The business ID to validate
+   * @returns True if the business ID is valid, false otherwise
    */
   isValidBusinessId(businessId: string): boolean {
     if (!businessId) return false
@@ -43,6 +55,9 @@ const validator = {
   /**
    * Basic date validation
    * Checks if the string can be parsed as a date
+   *
+   * @param dateStr - The date string to validate
+   * @returns True if the date string is valid, false otherwise
    */
   isValidDate(dateStr: string): boolean {
     if (!dateStr) return false
