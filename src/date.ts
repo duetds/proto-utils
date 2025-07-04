@@ -4,6 +4,7 @@ const tomorrow = new Date(today.getTime() + dayInMS)
 const yesterday = new Date(today.getTime() - dayInMS)
 
 const isDate = (date: any): boolean => typeof date.getMonth === "function"
+const zeroPad = (num: number): string => String(num).padStart(2, "0")
 const date2ISO = (date: Date): string => date.toISOString().split("T")[0]
 const date2Local = (date: Date): string => date.toLocaleDateString("fi")
 const date2LocalShortMonth = (date: Date): string => date.toLocaleDateString("fi", { month: "short" })
@@ -80,7 +81,7 @@ const string2ISO = (string: string): string => {
     if (date?.toLowerCase() === "end") {
       return `${current.year + Number.parseInt(number)}-12-31`
     }
-    return `${current.year + Number.parseInt(number)}-${current.month}-${current.day}`
+    return `${current.year + Number.parseInt(number)}-${zeroPad(current.month)}-${zeroPad(current.day)}`
   }
   if (unit.toLowerCase().startsWith("day")) {
     return dateFromToday(Number.parseInt(number), "ISO") as string
