@@ -4,7 +4,7 @@ This repository contains various utilities for prototypes.
 
 ## Install
 
-`$ npm install https://github.com/duetds/proto-utils#semver:1.0.3`
+`$ npm install https://github.com/duetds/proto-utils#semver:v1.0.3`
 
 ## Utils
 
