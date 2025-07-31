@@ -44,7 +44,7 @@ declare const ProtoUtils: {
         get(path: string): {};
         clear(): void;
     };
-    stepperPaginator: (name: string, items: {}[], config?: {
+    stepperPaginator: (elementOrName: HTMLElement | string, items: {}[], config?: {
         pageSize?: number;
         show5Size?: number;
         filtering?: () => {};
