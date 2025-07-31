@@ -4,7 +4,9 @@ This repository contains various utilities for prototypes.
 
 ## Install
 
-`$ npm install https://github.com/duetds/proto-utils#semver:v1.0.3`
+`$ npm install https://github.com/duetds/proto-utils#semver:v1.2.0`
+
+**Compatibility**: This package supports both CommonJS and ES modules, making it compatible with older and newer projects.
 
 ## Utils
 

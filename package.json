@@ -1,10 +1,22 @@
 {
   "name": "proto-utils",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "This package provides utilities for prototypes",
   "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.esm.js",
+      "require": "./lib/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc"
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:cjs": "esbuild src/index.ts --bundle --platform=node --target=node14 --format=cjs --outfile=lib/index.js",
+    "build:esm": "esbuild src/index.ts --bundle --platform=node --target=node14 --format=esm --outfile=lib/index.esm.js",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir lib"
   },
   "repository": {
     "type": "git",
@@ -17,7 +29,10 @@
   },
   "homepage": "https://github.com/duetds/proto-utils#readme",
   "dependencies": {
-    "finnish-ssn": "^2.1.2",
+    "finnish-ssn": "^2.1.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.8",
     "typescript": "^5.8.3"
   }
 }
