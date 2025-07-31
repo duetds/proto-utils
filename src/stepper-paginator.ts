@@ -1,14 +1,28 @@
 /**
- * @param name: string, id prefix to use in stepper wrapper
+ * @param elementOrName: HTMLElement | string, container element or id prefix to use in stepper wrapper
  * @param items: array of objects to paginate
- * @param config: object for cofigurable options: pageSize, show5Size, filtering function
+ * @param config: object for configurable options: pageSize, show5Size, filtering function
  *
  */
 
 const MAX_PAGE_SIZE = 40
 
-const stepperPaginator = (name: string, items: {}[], config: { pageSize?: number, show5Size?: number, filtering?: () => {}} = {}) => {
-  const stepperElement = document.getElementById(`${name}-pagination-stepper`)
+const stepperPaginator = (elementOrName: HTMLElement | string, items: {}[], config: { pageSize?: number, show5Size?: number, filtering?: () => {}} = {}) => {
+  let stepperElement: HTMLElement;
+
+  // 1. Traditional name-based approach
+  // 2. Direct container element (ShadowDOM compatible)
+  if (typeof elementOrName === 'string') {
+    stepperElement = document.getElementById(`${elementOrName}-pagination-stepper`)
+    if (!stepperElement) {
+      throw new Error(`Paginator container not found with name: ${elementOrName}`)
+    }
+  } else if (elementOrName instanceof HTMLElement) {
+    stepperElement = elementOrName
+  } else {
+    throw new Error("Paginator needs either a container element or a name string")
+  }
+
   return {
     allItems: items,
     displayItems: [],
