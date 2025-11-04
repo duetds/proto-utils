@@ -6,24 +6,26 @@ import { store } from "./store"
 import { themeSwitch } from "./theme-switch"
 import { validator } from "./validator"
 
-
 /**
-* @param number
-* @param hideCents
-* @returns a currency sting according to Finnish standard
-*/
-const currency = (number: number, hideCents: boolean) =>
-  new Intl.NumberFormat("fi-FI", {
-    style: "currency",
-    currency: "EUR",
+ * @param number
+ * @param hideCents
+ * @param hideSymbol - if true, uses decimal style instead of currency (no € symbol)
+ * @returns a currency sting according to Finnish standard
+ */
+const currency = (number: number, hideCents: boolean, hideSymbol: boolean = false) => {
+  return new Intl.NumberFormat("fi-FI", {
+    style: hideSymbol ? "decimal" : "currency",
+    ...(hideSymbol ? {} : { currency: "EUR" }),
+    minimumFractionDigits: hideCents ? 0 : 2,
     maximumFractionDigits: hideCents ? 0 : 2,
   }).format(number)
+}
 
 /**
-* Date Of Birth from Social Security Number (personal identity code)
-* @param ssn
-* @returns ISO date for the ssn
-*/
+ * Date Of Birth from Social Security Number (personal identity code)
+ * @param ssn
+ * @returns ISO date for the ssn
+ */
 const dobFromSsn = (ssn: string) => {
   const day = ssn.substring(0, 2)
   const month = ssn.substring(2, 4)
@@ -34,30 +36,30 @@ const dobFromSsn = (ssn: string) => {
 }
 
 /**
-* Generate an id that is locally unique enough (up to 2^52 ids per ms)
-*/
+ * Generate an id that is locally unique enough (up to 2^52 ids per ms)
+ */
 const id = (prefix: string = "proto-id-"): string =>
   `${prefix}${`${Date.now().toString(36)}-${Math.random().toString(36).substring(2)}`}`
 
 /**
-* @param param
-* @returns the param from query string
-*/
+ * @param param
+ * @returns the param from query string
+ */
 const queryParam = (param: string): string => new URLSearchParams(window.location.search).get(param)
 
 /**
-* Random integer in given range
-* @param min
-* @param max
-* @returns an integer no less than min and no more than max
-*/
+ * Random integer in given range
+ * @param min
+ * @param max
+ * @returns an integer no less than min and no more than max
+ */
 const rnd = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min
 
 /**
-* Upper Case First
-* @param string
-* @returns the string with its first character converted to upper case
-*/
+ * Upper Case First
+ * @param string
+ * @returns the string with its first character converted to upper case
+ */
 const ucFirst = (string: string) => `${string[0].toUpperCase()}${string.slice(1)}`
 
 const ProtoUtils = {
