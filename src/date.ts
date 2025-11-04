@@ -9,7 +9,11 @@ const date2ISO = (date: Date): string => date.toISOString().split("T")[0]
 const date2Local = (date: Date): string => date.toLocaleDateString("fi")
 const date2LocalShortMonth = (date: Date): string => date.toLocaleDateString("fi", { month: "short" })
 const date2LocalShortDay = (date: Date): string => date.toLocaleDateString("fi", { day: "numeric" })
-const addDaysToDate = (baseDate: Date | string, days: number, format: "ISO" | "local" | "data" = "ISO"): string | Date => {
+const addDaysToDate = (
+  baseDate: Date | string,
+  days: number,
+  format: "ISO" | "local" | "data" = "ISO"
+): string | Date => {
   const isoDate = isDate(baseDate) ? date2ISO(baseDate as Date) : string2ISO(baseDate as string)
   const date = new Date(new Date(isoDate).getTime() + dayInMS * days)
   if (format === "ISO") {
@@ -27,7 +31,8 @@ const isISO = (string: string): boolean => !!string && /^\d{4}-\d{2}-\d{2}$/.tes
 const ISO2Local = (string: string): string => string && date2Local(new Date(string))
 const ISO2LocalShortMonth = (string: string): string => date2LocalShortMonth(new Date(string))
 const ISO2LocalShortDay = (string: string): string => date2LocalShortDay(new Date(string))
-const ISO2LocalRange = (dateObj: { startDate: string, endDate: string}) => `${ISO2Local(dateObj?.startDate || "")} - ${ISO2Local(dateObj?.endDate || "")}`
+const ISO2LocalRange = (dateObj: { startDate: string; endDate: string }) =>
+  `${ISO2Local(dateObj?.startDate || "")} - ${ISO2Local(dateObj?.endDate || "")}`
 const local2ISO = (string: string): string =>
   string
     .split(".")

@@ -7,12 +7,16 @@
 
 const MAX_PAGE_SIZE = 40
 
-const stepperPaginator = (elementOrName: HTMLElement | string, items: {}[], config: { pageSize?: number, show5Size?: number, filtering?: () => {}} = {}) => {
-  let stepperElement: HTMLElement;
+const stepperPaginator = (
+  elementOrName: HTMLElement | string,
+  items: {}[],
+  config: { pageSize?: number; show5Size?: number; filtering?: () => {} } = {}
+) => {
+  let stepperElement: HTMLElement
 
   // 1. Traditional name-based approach
   // 2. Direct container element (ShadowDOM compatible)
-  if (typeof elementOrName === 'string') {
+  if (typeof elementOrName === "string") {
     stepperElement = document.getElementById(`${elementOrName}-pagination-stepper`)
     if (!stepperElement) {
       throw new Error(`Paginator container not found with name: ${elementOrName}`)
