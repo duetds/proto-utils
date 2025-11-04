@@ -6,7 +6,9 @@
     "moduleResolution": "bundler",
     "declaration": true,
     "outDir": "lib",
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules"]
 }
