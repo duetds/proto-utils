@@ -16,7 +16,10 @@
     "build": "npm run build:cjs && npm run build:esm && npm run build:types",
     "build:cjs": "esbuild src/index.ts --bundle --platform=node --target=node14 --format=cjs --outfile=lib/index.js",
     "build:esm": "esbuild src/index.ts --bundle --platform=node --target=node14 --format=esm --outfile=lib/index.esm.js",
-    "build:types": "tsc --emitDeclarationOnly --declaration --outDir lib"
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir lib",
+    "test": "vitest run",
+    "format": "biome format --write",
+    "lint": "biome lint --write"
   },
   "repository": {
     "type": "git",
@@ -32,7 +35,10 @@
     "finnish-ssn": "^2.1.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.3",
+    "@vitest/ui": "^4.0.6",
     "esbuild": "^0.25.8",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^4.0.6"
   }
 }
