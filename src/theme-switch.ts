@@ -18,7 +18,10 @@ const themeSwitch = {
     }
 
     const buttonText = theme === "turva" ? "LähiTapiola teema" : "Turva teema"
-    document.getElementById("themeSwitchToggle").innerText = buttonText
+    const toggle = document.getElementById("themeSwitchToggle");
+    if (toggle) {
+      toggle.innerText = buttonText
+    }
   },
   swap() {
     // @ts-ignore
