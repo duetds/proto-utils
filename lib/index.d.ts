@@ -1,5 +1,5 @@
 declare const ProtoUtils: {
-    currency: (number: number, hideCents: boolean) => string;
+    currency: (number: number, hideCents: boolean, hideSymbol?: boolean) => string;
     date: {
         ISO: {
             today: string;
