@@ -1,3 +1,4 @@
+import { FormValidator } from "./form-validator";
 declare const ProtoUtils: {
     currency: (number: number, hideCents: boolean, hideSymbol?: boolean) => string;
     date: {
@@ -86,5 +87,6 @@ declare const ProtoUtils: {
         isValidBusinessId(businessId: string): boolean;
         isValidDate(dateStr: string): boolean;
     };
+    FormValidator: typeof FormValidator;
 };
 export default ProtoUtils;

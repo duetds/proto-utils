@@ -5,6 +5,7 @@ import { stepperPaginator } from "./stepper-paginator"
 import { store } from "./store"
 import { themeSwitch } from "./theme-switch"
 import { validator } from "./validator"
+import { FormValidator } from "./form-validator"
 
 /**
  * @param number
@@ -78,6 +79,7 @@ const ProtoUtils = {
   },
   themeSwitch,
   validator,
+  FormValidator,
 }
 
 export default ProtoUtils
