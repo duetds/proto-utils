@@ -18,7 +18,7 @@ const themeSwitch = {
     }
 
     const buttonText = theme === "turva" ? "LähiTapiola teema" : "Turva teema"
-    const toggle = document.getElementById("themeSwitchToggle");
+    const toggle = document.getElementById("themeSwitchToggle")
     if (toggle) {
       toggle.innerText = buttonText
     }

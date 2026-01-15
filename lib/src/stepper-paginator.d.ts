@@ -4,25 +4,29 @@
  * @param config: object for configurable options: pageSize, show5Size, filtering function
  *
  */
-declare const stepperPaginator: (elementOrName: HTMLElement | string, items: {}[], config?: {
-    pageSize?: number;
-    show5Size?: number;
-    filtering?: () => {};
-}) => {
-    allItems: {}[];
-    displayItems: any[];
-    displayPage: any[];
-    pageSize: number;
-    total: number;
-    index: number;
-    paginationStepper: Element;
-    paginationSizer: Element;
-    setPaginationSizeItems(): void;
-    setPage(): void;
-    checkPageIndex(): void;
-    changePageSize(event: CustomEvent): void;
-    changePage(event: CustomEvent): void;
-    filterList(): void;
-    init(): void;
-};
-export { stepperPaginator };
+declare const stepperPaginator: (
+  elementOrName: HTMLElement | string,
+  items: {}[],
+  config?: {
+    pageSize?: number
+    show5Size?: number
+    filtering?: () => {}
+  }
+) => {
+  allItems: {}[]
+  displayItems: any[]
+  displayPage: any[]
+  pageSize: number
+  total: number
+  index: number
+  paginationStepper: Element
+  paginationSizer: Element
+  setPaginationSizeItems(): void
+  setPage(): void
+  checkPageIndex(): void
+  changePageSize(event: CustomEvent): void
+  changePage(event: CustomEvent): void
+  filterList(): void
+  init(): void
+}
+export { stepperPaginator }
