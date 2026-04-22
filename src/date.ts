@@ -95,6 +95,13 @@ const string2ISO = (string: string): string => {
 }
 const string2Local = (string: string) => ISO2Local(string2ISO(string))
 
+const months = (locale: string): string[] =>
+  Array.from({ length: 12 }, (_, index) =>
+    new Intl.DateTimeFormat(locale, { month: "long" })
+      .format(new Date(2000, index, 1))
+      .replace(/^\w/, c => c.toUpperCase())
+  )
+
 export const date = {
   ISO,
   ISO2Local,
@@ -111,6 +118,7 @@ export const date = {
   dayInMS,
   isISO,
   local2ISO,
+  months,
   string2ISO,
   string2Local,
   today,
