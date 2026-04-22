@@ -25,6 +25,7 @@ export declare const date: {
     dayInMS: number;
     isISO: (string: string) => boolean;
     local2ISO: (string: string) => string;
+    months: (locale: string) => string[];
     string2ISO: (string: string) => string;
     string2Local: (string: string) => string;
     today: Date;
