@@ -66,7 +66,6 @@ export class FormValidator {
 
     for (const field in nextFormFields) {
       nextFormFields[field].addEventListener("duetChange", () => {
-        const nativeElement = nextFormFields[field].querySelector("input, textarea")
         const value = nextFormFields[field].value
 
         if (nextFormFields[field]?.matches("duet-date-picker")) {
@@ -77,7 +76,7 @@ export class FormValidator {
           nextFormFields[field].error = ""
         }
 
-        if (value && (!nativeElement || nativeElement.validity.valid)) {
+        if (value && (!nextFormFields[field].validity || nextFormFields[field].validity.valid)) {
           nextFormFields[field].error = ""
         }
 
